@@ -30,10 +30,10 @@ const App = {
       this.statusFinish = false
     },
     nextOfFinish() {
-      if (this.activeIndex < this.steps.length -1 ){
+      if (!this.isLastStep){
         this.activeIndex++
         this.statusFinish = false
-      } else if (this.activeIndex === this.steps.length - 1)
+      } else
       {
         this.statusFinish = true
       }
@@ -50,7 +50,15 @@ const App = {
     // 1. текущий выбранный шаг
     // 2. выключена ли кнопка назад
     // 3. находимся ли мы на последнем шаге
-
+    isLastStep(){
+      return  this.activeIndex === this.steps.length - 1 ? true : false
+    },
+    isTxtLastStep(){
+      return  !this.isLastStep ? 'Вперед' : 'Закончить'
+    },
+    isPrevButtonDisabled(){
+      return this.activeIndex === 0 ? true : false
+    }
   }
 }
 

@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Основы Vue</title>
     <link rel="stylesheet" href="theme.css" />
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-    </style>
   </head>
   <body>
 
@@ -34,8 +29,8 @@
         </ul>
         <div>
           <div v-if="!statusFinish">
-            <button class="btn" :disabled="!activeIndex" @click="prev">Назад</button>
-            <button class="btn primary" @click="nextOfFinish">{{ activeIndex != steps.length - 1 ? 'Вперед' : 'Закончить' }}</button>
+            <button class="btn" :disabled="isPrevButtonDisabled" @click="prev">Назад</button>
+            <button class="btn primary" @click="nextOfFinish">{{ isTxtLastStep }}</button>
           </div>
           <div v-else>
             <button class="btn " @click="reset">Начать заново</button>
